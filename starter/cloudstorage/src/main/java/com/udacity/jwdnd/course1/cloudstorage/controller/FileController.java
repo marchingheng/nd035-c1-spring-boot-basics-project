@@ -39,7 +39,14 @@ public class FileController {
         }
         else if(preExisitingFile != null) {
             model.addAttribute("error","Filename already exists!");
-        }else{
+        }
+/**
+ file too large issue is handled in ExceptionController
+ **/
+//        else if(file.getSize()>10000000) {
+//            model.addAttribute("error","Too large File to upload");
+//        }
+        else{
             fileService.insertFile(new File(
                     null,
                     file.getOriginalFilename(),
